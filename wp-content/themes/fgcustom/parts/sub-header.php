@@ -4,12 +4,11 @@
  */
 ?>
 
-<div class="grid-container sub-header">
+<div class="grid-container sub-header hide-for-small-only">
 	<div class=" grid-x grid-margin-x grid-padding-x align-spaced OFFtext-center">
 
 		<div class="breadcrumb small-12 medium-5 small-order-2 medium-order-1">
 		<?php if (function_exists('the_breadcrumb')) the_breadcrumb(); ?>
-		<ul><?php //if (function_exists('be_taxonomy_breadcrumb')) be_taxonomy_breadcrumb(); ?></ul>
 		</div>
 							
 		<div class="social small-12 medium-5 small-order-1 medium-order-2">

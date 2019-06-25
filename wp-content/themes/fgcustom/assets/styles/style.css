@@ -335,7 +335,7 @@ FOOTER STYLES
 *********************/
 .footer {
   clear: both;
-  margin-top: 1em; }
+  /*margin-top: 1em;*/ }
 
 /*********************
 VISUAL EDITOR STYLES
@@ -407,6 +407,9 @@ header.header {  }
 .top-bar .menu .active>a { background:inherit; }
 .top-bar, .top-bar ul { background-color:#FFFFFF; }
 .top-bar .top-bar-left .custom-logo-link { padding:1em 0em;  }
+.home-mobile-nav .orange-link {  border:3px solid #F3822F; background:#F3822F; padding:1em; }
+.home-mobile-nav .orange-link a {  color:#FFFFFF; font-weight:700; }
+.home-mobile-nav .orange-link img {  padding:1em; }
 
 /*********************
 CUSTOM PAGE COMPONENTS
@@ -422,6 +425,13 @@ article { text-align:center; }
 .page-title { text-align:center; margin:2em 0em 1em 0em;}
 .entry-content { margin: 1em; }
 .entry-content a { font-weight:700; }
+.home-cta { margin:2em auto; }
+.home-cta .cta-item { margin:2em auto; background-color:#565453; color:#FFFFFF; }
+.home-cta .cta-item a { color:#FFFFFF; }
+.home-cta .cta-item .cta-link { color:#FFFFFF; text-transform:uppercase; font-weight:600; letter-spacing: .05em; }
+.home-cta .cta-item .cta-meta { padding:2.5em; }
+.home-cta .cta-item .spacer { padding:1em; }
+.single .content, .archive .content { margin-bottom:2em; }
 
 /*********************
 ORBIT SLIDER
@@ -469,7 +479,7 @@ MEDIA QUERIES
 @media only screen {
 
 /*.top-bar .menu li { width:100%; text-align:center; }*/
-.top-bar .menu li { width:auto; text-align:center; }
+.top-bar .menu li { width:auto; text-align:center; margin:auto; }
 .orbit-figure { min-height:480px; }
 .orbit-caption { opacity: 1; }
 } 
@@ -478,7 +488,7 @@ MEDIA QUERIES
 @media only screen and (min-width: 40.063em) {
 
 /*.top-bar .menu li { width:auto; text-align:inherit; }*/
-.top-bar .menu li { width:auto; text-align:inherit; }
+.top-bar .menu li { width:auto; text-align:inherit; margin:inherit; }
 .orbit-figure { min-height:480px; }
 .orbit-caption { opacity: 1; }
 

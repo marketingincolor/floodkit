@@ -46,6 +46,65 @@ require_once(get_template_directory().'/functions/translation/translation.php');
 // Customize the WordPress admin
 // require_once(get_template_directory().'/functions/admin.php'); 
 
+
+
+
+// CPT UI - Add all Post Types to Archive
+function my_cptui_add_post_types_to_archives( $query ) {
+    // We do not want unintended consequences.
+    if ( is_admin() || ! $query->is_main_query() ) {
+        return;    
+    }
+
+    if ( is_category() || is_tag() && empty( $query->query_vars['suppress_filters'] ) ) {
+        $cptui_post_types = cptui_get_post_type_slugs();
+
+        $query->set(
+            'post_type',
+            array_merge(
+                array( 'post' ),
+                $cptui_post_types
+            )
+        );
+    }
+}
+add_filter( 'pre_get_posts', 'my_cptui_add_post_types_to_archives' );
+
+// CPT UI - Add all Post Types to Search
+function my_cptui_add_post_type_to_search( $query ) {
+    if ( is_admin() ) {
+        return;
+    }
+
+    if ( $query->is_search() ) {
+        $cptui_post_types = cptui_get_post_type_slugs();
+        $query->set(
+            'post_type',
+            array_merge(
+                array( 'post' ), // May also want to add the "page" post type.
+                $cptui_post_types
+            )
+        );
+    }
+}
+add_filter( 'pre_get_posts', 'my_cptui_add_post_type_to_search' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 if( function_exists('acf_add_options_page') ) {
 	
 	acf_add_options_page(array(
@@ -75,7 +134,7 @@ function the_breadcrumb()
     $showOnHome = 0; // 1 - show breadcrumbs on the homepage, 0 - don't show
     $delimiter = '&gt;'; // delimiter between crumbs
     $home = 'Home'; // text for the 'Home' link
-    $showCurrent = 1; // 1 - show current post/page title in breadcrumbs, 0 - don't show
+    $showCurrent = 0; // 1 - show current post/page title in breadcrumbs, 0 - don't show
     $before = '<span class="current">'; // tag before the current crumb
     $after = '</span>'; // tag after the current crumb
 
@@ -105,7 +164,7 @@ function the_breadcrumb()
         } elseif (is_year()) {
             echo $before . get_the_time('Y') . $after;
         }*/ elseif (is_single() && !is_attachment()) {
-            if (get_post_type() != 'post' && get_post_type() != 'recruiter') {
+            if (get_post_type() != 'post'/* && get_post_type() != 'recruiter'*/) {
                 $post_type = get_post_type_object(get_post_type());
                 $slug = $post_type->rewrite;
                 echo '<a id="one" href="' . $homeLink . '/' . $slug['slug'] . '/">' . $post_type->labels->singular_name . '</a>';
@@ -179,31 +238,3 @@ function the_breadcrumb()
         echo '</div>';
     }
 } // end the_breadcrumb()
-
-
-
-
-
-/* Taxonomy Breadcrumb */
-function be_taxonomy_breadcrumb() {
-// Get the current term
-$term = get_term_by( 'slug', get_query_var( 'term' ), get_query_var( 'taxonomy' ) );
-// Create a list of all the term's parents
-$parent = $term->parent;
-while ($parent):
-$parents[] = $parent;
-$new_parent = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
-$parent = $new_parent->parent;
-endwhile;
-if(!empty($parents)):
-$parents = array_reverse($parents);
-// For each parent, create a breadcrumb item
-foreach ($parents as $parent):
-$item = get_term_by( 'id', $parent, get_query_var( 'taxonomy' ));
-$url = get_bloginfo('url').'/'.$item->taxonomy.'/'.$item->slug;
-echo '<li><a href="'.$url.'">'.$item->name.'</a></li>';
-endforeach;
-endif;
-// Display the current term in the breadcrumb
-echo '<li>'.$term->name.'</li>';
-}

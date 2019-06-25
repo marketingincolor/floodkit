@@ -4,8 +4,8 @@
  *
  * This is the template that displays all pages by default.
  */
-$url = get_field('base_url', 'option');
-$siteurl = site_url($url);
+//$url = get_field('base_url', 'option');
+//$siteurl = site_url($url);
 //$siteurl = site_url('/recruiter-kit/');
 get_header(); ?>
 
@@ -14,10 +14,16 @@ get_header(); ?>
 //wp_redirect( $siteurl );
 //exit;
 ?>
+<div class="show-for-small-only">
+	<?php get_template_part( 'parts/front', 'cta'); ?>
+</div>
+	<?php get_template_part( 'parts/front', 'slider'); ?>
 
+<div class="show-for-medium">
+	<?php get_template_part( 'parts/front', 'cta'); ?>
+</div>
+</div>
 <?php else : ?>
-
-<?php endif; ?>
 
 <?php get_template_part( 'parts/sub', 'header' ); ?>
 
@@ -34,5 +40,7 @@ get_header(); ?>
 			</main> <!-- end #main -->
 		</div> <!-- end #inner-content -->
 	</div> <!-- end #content -->
+
+<?php endif; ?>
 
 <?php get_footer(); ?>
