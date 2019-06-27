@@ -48,3 +48,14 @@
 						<?php get_template_part( 'parts/nav', 'topbar' ); ?>
 	 				</div>
 				</header> <!-- end .header -->
+
+	<?php if ( is_single() ) : ?>
+		<div class="custom-top-bar" id="main-menu">
+			<div class="orange-bgnd sub-nav" data-responsive-toggle="mob-top-bar-menu" data-hide-for="medium">
+				<button class="menu-icon" type="button" data-toggle></button>
+				<div class="orange-bgnd mob-top-bar" id="mob-top-bar-menu" style="display:none;">
+					<?php joints_off_canvas_nav(); ?>
+				</div>
+			</div>
+		</div>
+	<?php endif; ?>

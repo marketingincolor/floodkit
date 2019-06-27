@@ -5,8 +5,8 @@
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(''); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 	<div class="grid-container">
-		<div class=" grid-x grid-margin-x grid-padding-x">
-			<div class="main small-10 small-offset-1 cell">
+		<div class=" grid-x grid-margin-x">
+			<div class="main small-12 medium-10 medium-offset-1 cell">
 
 				<header class="article-header">	
 				<?php if ( is_singular('videos')) : ?>

@@ -12,10 +12,10 @@
 	    while ( have_rows('cta_links') ) : the_row(); ?>
 
 		<div class="cta-item cell small-6 medium-3" style="background: url('<?php the_sub_field('hp_cta_image'); ?>') no-repeat top center / cover;">
-			<div class="cta-meta"> 
-				<h3><a href="<?php echo site_url();?><?php the_sub_field('hp_cta_link'); ?>"><?php the_sub_field('hp_cta_title');?></a></h3>
-				<div class="hide-for-small-only"><a class="cta-link" href="<?php echo site_url();?><?php the_sub_field('hp_cta_link'); ?>"><?php the_sub_field('hp_cta_button'); ?> <span class="orange">&gt;</span></a></div>
-			</div>
+			<a href="<?php echo site_url();?><?php the_sub_field('hp_cta_link'); ?>"><div class="cta-meta"> 
+				<h3><?php the_sub_field('hp_cta_title');?></h3>
+				<div class="hide-for-small-only"><?php the_sub_field('hp_cta_button'); ?> <span class="orange">&gt;</span></div>
+			</div></a>
 		</div>
 
 

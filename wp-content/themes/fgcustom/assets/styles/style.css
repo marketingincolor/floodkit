@@ -371,9 +371,13 @@ a:focus, a:hover { color:#656362; }
 body { color:#565453; background-color:#FFFFFF; }
 
 .green { color:#91C63D; }
+.green-bgnd { background-color:#91C63D; }
 .orange { color:#F3822F; }
+.orange-bgnd { background-color:#F3822F; }
 .gray { color:#656362; }
+.gray-bgnd { background-color:#656362; }
 .lt-gray { color:#DADBDC; }
+.lt-gray-bgnd { background-color:#DADBDC; }
 
 footer.footer { 
   background:#656362 url('../images/fgm-rk-footer-bgnd.png') no-repeat bottom right / cover ; 
@@ -392,7 +396,7 @@ footer .footer-cta-button {
   padding:0.25em 1.5em;
   margin:1em;
   font-weight:700;
-  letter-spacing:1.5px;
+  letter-spacing:0.75px;
 }
 footer .footer-cta-button:hover { border-color:#FFF; }
 footer .copyright { color:#ACACAC; font-weight:700; margin:2em 0em; }
@@ -407,10 +411,12 @@ header.header {  }
 .top-bar .menu .active>a { background:inherit; }
 .top-bar, .top-bar ul { background-color:#FFFFFF; }
 .top-bar .top-bar-left .custom-logo-link { padding:1em 0em;  }
-.home-mobile-nav .orange-link {  border:3px solid #F3822F; background:#F3822F; padding:1em; }
+.home-mobile-nav .orange-link {  /*border:3px solid #F3822F;*/ background:#F3822F; padding:.5em; }
 .home-mobile-nav .orange-link a {  color:#FFFFFF; font-weight:700; }
 .home-mobile-nav .orange-link img {  padding:1em; }
-
+.custom-top-bar  { width:100%; padding:0em; text-align:center; }
+.custom-top-bar .sub-nav { padding:0.5em; }
+.custom-top-bar .mob-top-bar ul li a { text-align:center; color:#FFF; }
 /*********************
 CUSTOM PAGE COMPONENTS
 *********************/
@@ -425,13 +431,16 @@ article { text-align:center; }
 .page-title { text-align:center; margin:2em 0em 1em 0em;}
 .entry-content { margin: 1em; }
 .entry-content a { font-weight:700; }
+.single .content, .archive .content { margin-bottom:2em; }
 .home-cta { margin:2em auto; }
-.home-cta .cta-item { margin:2em auto; background-color:#565453; color:#FFFFFF; }
+.home-cta .cta-item { margin:.5em; background-color:#565453; color:#FFFFFF; }
 .home-cta .cta-item a { color:#FFFFFF; }
 .home-cta .cta-item .cta-link { color:#FFFFFF; text-transform:uppercase; font-weight:600; letter-spacing: .05em; }
-.home-cta .cta-item .cta-meta { padding:2.5em; }
+.home-cta .cta-item .cta-meta { padding:2.5em 1.5em; }
+.home-cta .cta-item .cta-meta:hover { background-color:rgba(243, 130, 47, 0.8); }
+.home-cta .cta-item .cta-meta h3 { line-height:1.2em; }
 .home-cta .cta-item .spacer { padding:1em; }
-.single .content, .archive .content { margin-bottom:2em; }
+.videos .entry-content a { font-size:80%; }
 
 /*********************
 ORBIT SLIDER
@@ -443,6 +452,7 @@ ORBIT SLIDER
   color:#333333;
   text-align:center;
 }
+.orbit-caption h4 { padding: 0em 1.75em; }
 .orbit-caption-meta h2 { margin-top:0.75em; }
 .slide-cta-button { 
   color:#333333;
@@ -455,6 +465,8 @@ ORBIT SLIDER
   margin:1em;
 }
 .slide-cta-button:hover { border-color:#FFF; }
+.orbit-next, .orbit-previous { font-size:4em; color:rgba(255, 255, 255, .5); top:75%; }
+.orbit-next:active, .orbit-next:focus, .orbit-next:hover, .orbit-previous:active, .orbit-previous:focus, .orbit-previous:hover { background:none; }
 .orbit-bullets {
   position:absolute;
   bottom:.125em;
@@ -477,27 +489,29 @@ MEDIA QUERIES
 
 /* Define mobile styles */
 @media only screen {
-
 /*.top-bar .menu li { width:100%; text-align:center; }*/
+.top-bar .top-bar-left .custom-logo-link { padding: 1.5em 0em; }
 .top-bar .menu li { width:auto; text-align:center; margin:auto; }
 .orbit-figure { min-height:480px; }
-.orbit-caption { opacity: 1; }
+.orbit-caption { opacity: 1; padding:.25rem; }
+.archive-grid article { margin-bottom:2.5em; }
 } 
 
 /* min-width 641px, medium screens */
 @media only screen and (min-width: 40.063em) {
-
 /*.top-bar .menu li { width:auto; text-align:inherit; }*/
+.top-bar .top-bar-left .custom-logo-link { padding: 1em 0em; }
 .top-bar .menu li { width:auto; text-align:inherit; margin:inherit; }
 .orbit-figure { min-height:480px; }
-.orbit-caption { opacity: 1; }
+.orbit-caption { opacity: 1; padding:1rem; }
+.archive-grid article { margin-bottom:1em; }
 
 }
 
 /* min-width 1025px, large screens */
 @media only screen and (min-width: 64.063em) {
 .orbit-figure { min-height:480px; }
-.orbit-caption { opacity: 0.969; }
+.orbit-caption { opacity: 0.969; padding:2rem; }
 
 } 
 
