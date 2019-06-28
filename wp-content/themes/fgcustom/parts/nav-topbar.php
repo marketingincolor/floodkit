@@ -26,7 +26,7 @@
 
 	<div class="show-for-small-only" style="width:100%;">
 
-	<?php if ( is_single() ) : ?>
+	<?php if ( is_single() || is_archive() ) : ?>
 
 			<!-- <div class="orange-bgnd sub-nav" data-responsive-toggle="mob-top-bar-menu" data-hide-for="medium">
 				<button class="menu-icon" type="button" data-toggle></button>
@@ -37,19 +37,19 @@
 
 	<?php else: ?>
 
-		<div class="grid-container fluid home-mobile-nav">
+		<div class="grid-container full home-mobile-nav">
 			<div class="grid-x grid-margin-x text-center align-spaced">
 				<div class="orange-link cell small-4">
-					<a href="<?php echo site_url('/videos'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fgm-mob-navicon-vid.svg"></a><br>
+					<a href="<?php echo site_url('/videos'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fgm-smob-navicon-vid.svg"></a><br>
 					<a href="<?php echo site_url('/videos'); ?>">Videos</a>
 				</div>
 				<div class="orange-link cell small-4">
-					<a href="<?php echo site_url('/articles'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fgm-mob-navicon-art.svg"></a><br>
+					<a href="<?php echo site_url('/articles'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fgm-smob-navicon-art.svg"></a><br>
 					<a href="<?php echo site_url('/articles'); ?>">Articles</a>
 				</div>
 				<div class="orange-link cell small-4">
-					<a href="<?php echo site_url('/downloadables'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fgm-mob-navicon-dnl.svg"></a><br>
-					<a href="<?php echo site_url('/downloadables'); ?>">Downloadables</a>
+					<a href="<?php echo site_url('/downloadables'); ?>"><img src="<?php echo get_template_directory_uri(); ?>/assets/images/fgm-smob-navicon-dnl.svg"></a><br>
+					<a href="<?php echo site_url('/downloadables'); ?>">Downloads</a>
 				</div>
 			</div>
 		</div>

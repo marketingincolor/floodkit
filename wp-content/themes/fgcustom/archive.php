@@ -18,7 +18,7 @@ get_header(); ?>
 	    	<header>
 	    		<!-- <h1 class="page-title"><?php the_archive_title();?></h1> -->
 				<?php the_archive_description('<div class="taxonomy-description">', '</div>');?>
-				<p style="text-align:center;">Filter By Category</p>
+				<p style="text-align:center; display:none;">Filter By Category</p>
 	    	</header>
 	
 	    	<?php if (have_posts()) : while (have_posts()) : the_post(); ?>

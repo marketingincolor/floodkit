@@ -49,7 +49,7 @@
 	 				</div>
 				</header> <!-- end .header -->
 
-	<?php if ( is_single() ) : ?>
+	<?php if ( is_single() || is_archive() ) : ?>
 		<div class="custom-top-bar" id="main-menu">
 			<div class="orange-bgnd sub-nav" data-responsive-toggle="mob-top-bar-menu" data-hide-for="medium">
 				<button class="menu-icon" type="button" data-toggle></button>
