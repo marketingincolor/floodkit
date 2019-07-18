@@ -9,44 +9,51 @@
 
   <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
 
-      <div class="orbit-wrapper">
+  <?php 
+  $args = array( 'posts_per_page' => 4, 'category_name' => 'featured' );
+  //$show_posts = get_posts( $args );
+  $the_query = new WP_Query( $args ); 
+  $total = $the_query->found_posts;
+   
+  if ( $the_query->have_posts() ) : ?>
+
+    <div class="orbit-wrapper">
       <div class="orbit-controls hide-for-medium">
         <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&lsaquo;</button>
         <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&rsaquo;</button>
       </div>
-      <ul class="orbit-container">
 
-      <?php if( have_rows('slider') ):
-        while ( have_rows('slider') ) : the_row(); ?>
+      <ul class="orbit-container">
+      <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
         <li class="orbit-slide">
           <figure class="orbit-figure">
-            <img class="orbit-image" src="<?php the_sub_field('hp_slide_image'); ?>" alt="<?php the_sub_field('hp_slide_title'); ?>">
+            <img class="orbit-image" src="<?php the_post_thumbnail_url('full'); ?>" alt="<?php the_title(); ?>">
             <figcaption class="orbit-caption grid-x grid-padding-x">
               <div class="orbit-caption-meta medium-8 medium-offset-2">
-              <h2><?php the_sub_field('hp_slide_title'); ?></h2>
-              <h4><?php the_sub_field('hp_slide_text'); ?></h4>
-              <p><a href="<?php the_sub_field('hp_slide_link'); ?>" class="slide-cta-button"><?php the_sub_field('hp_slide_button'); ?></a></p>
+              <h2><?php the_title(); ?></h2>
+              <h4><?php the_excerpt(); ?></h4>
+              <p><a href="<?php the_permalink(); ?>" class="slide-cta-button">Read More</a></p>
               </div>
             </figcaption>
           </figure>
         </li>
 
-      <?php 
-        endwhile;
-      else : // no rows found
-      endif; ?>
-
+      <?php endwhile; ?>
+      <?php wp_reset_postdata(); ?>
       </ul>
+
     </div>
 
     <nav class="orbit-bullets">
-      <button data-slide="0"><span class="show-for-sr">First slide details.</span></button>
-      <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
-      <button data-slide="2"><span class="show-for-sr">Third slide details.</span></button>
-      <button data-slide="3"><span class="show-for-sr">Fourth slide details.</span></button>
+      <?php for($i=1; $i<=$total; $i++){ $j=$i-1; ?>
+          <button data-slide="<?php echo $j; ?>"><span class="show-for-sr">Slide details</span></button>
+      <?php } ?>
     </nav>
+
+  <?php else : endif; ?>
 
   </div>
 
 </div>
+

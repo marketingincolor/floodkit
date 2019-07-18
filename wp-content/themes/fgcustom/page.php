@@ -14,15 +14,15 @@ get_header(); ?>
 //wp_redirect( $siteurl );
 //exit;
 ?>
-<div class="show-for-small-only">
+<div class="">
 	<?php get_template_part( 'parts/front', 'cta'); ?>
 </div>
 	<?php get_template_part( 'parts/front', 'slider'); ?>
 
-<div class="show-for-medium">
-	<?php get_template_part( 'parts/front', 'cta'); ?>
+<div class="post-grid" style="margin-top:3em;">
+	<?php get_template_part( 'parts/front', 'postgrid'); ?>
 </div>
-</div>
+<!-- </div> -->
 <?php else : ?>
 
 <?php get_template_part( 'parts/sub', 'header' ); ?>
