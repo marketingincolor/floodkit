@@ -500,6 +500,8 @@ MEDIA QUERIES
 .orbit-figure { min-height:480px; }
 .orbit-caption { opacity: 1; padding:.25rem; }
 .home-cta { margin:1em auto; }
+.home-cta .cta-item .cta-meta { padding: 1.5em 1.5em;}
+.home-cta .cta-item .cta-meta h3 { font-size:16px; }
 .archive-grid article { margin-bottom:2.5em; }
 } 
 
@@ -512,6 +514,8 @@ MEDIA QUERIES
 .orbit-figure { min-height:480px; }
 .orbit-caption { opacity: 1; padding:1rem; }
 .home-cta { margin:2em auto; }
+.home-cta .cta-item .cta-meta { padding: 2.5em 2.5em;}
+.home-cta .cta-item .cta-meta h3 { font-size:22px; }
 .archive-grid article { margin-bottom:1em; }
 
 }
